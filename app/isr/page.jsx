@@ -1,8 +1,5 @@
 export const revalidate = 3600; // ISR: cached up to 1h unless revalidated on demand
-
-import MetricsWidget from "@/components/metrics-widget";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import RevalidateButton from "./revalidate-button";
+import RevalidateButton from "./RevalidateButton";
 
 export const metadata = {
   title: "ISR",
@@ -23,28 +20,28 @@ export default async function Page() {
   const generatedAt = new Date().toISOString();
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">ISR (Incremental Static Regeneration)</h1>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Info</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm space-y-2">
+    <div style={{ display: "grid", gap: 16 }}>
+      <h1 style={{ fontSize: 20, fontWeight: 600 }}>ISR (Incremental Static Regeneration)</h1>
+      <section style={{ display: "grid", gap: 16, gridTemplateColumns: "1fr" }}>
+        <div style={{ border: "1px solid #eee", borderRadius: 12, padding: 16 }}>
+          <h3 style={{ margin: 0, marginBottom: 8, fontSize: 16, fontWeight: 600 }}>Info</h3>
+          <div style={{ fontSize: 14, display: "grid", gap: 8 }}>
             <div>
-              <span className="font-medium">Original build time:</span> {format(buildTime)}
+              <strong>Original build time:</strong> {format(buildTime)}
             </div>
             <div>
-              <span className="font-medium">This page generated at:</span> {format(generatedAt)}
+              <strong>This page generated at:</strong> {format(generatedAt)}
             </div>
-            <RevalidateButton />
-            <div className="text-xs text-black/60 dark:text-white/60">
+            <div>
+              {/* Client button to revalidate without navigating to API */}
+              <RevalidateButton path="/isr" />
+            </div>
+            <div style={{ fontSize: 12, color: "#666" }}>
               On-demand revalidation will regenerate this page’s static output.
             </div>
-          </CardContent>
-        </Card>
-        <MetricsWidget buildOrRenderDurationMs={renderDuration} />
-      </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

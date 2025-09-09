@@ -22,3 +22,19 @@ export async function POST(request) {
   }
 }
 
+export async function GET(request) {
+  try {
+    const { searchParams } = new URL(request.url);
+    const path = searchParams.get("path") || "/isr";
+    revalidatePath(path);
+    return new Response(JSON.stringify({ revalidated: true, path }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (e) {
+    return new Response(JSON.stringify({ error: String(e) }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

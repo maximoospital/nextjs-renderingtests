@@ -1,8 +1,5 @@
 export const dynamic = "force-static"; // SSG
 
-import MetricsWidget from "@/components/metrics-widget";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
 export const metadata = {
   title: "SSG",
   description: "Static page generated at build time",
@@ -22,24 +19,21 @@ export default async function Page() {
   const buildTime = process.env.NEXT_PUBLIC_BUILD_TIME;
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-semibold">SSG (Static Site Generation)</h1>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <CardTitle>Info</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm space-y-2">
+    <div style={{ display: "grid", gap: 16 }}>
+      <h1 style={{ fontSize: 20, fontWeight: 600 }}>SSG (Static Site Generation)</h1>
+      <section style={{ display: "grid", gap: 16, gridTemplateColumns: "1fr" }}>
+        <div style={{ border: "1px solid #eee", borderRadius: 12, padding: 16 }}>
+          <h3 style={{ margin: 0, marginBottom: 8, fontSize: 16, fontWeight: 600 }}>Info</h3>
+          <div style={{ fontSize: 14, display: "grid", gap: 8 }}>
             <div>
-              <span className="font-medium">Build time:</span> {format(buildTime)}
+              <strong>Build time:</strong> {format(buildTime)}
             </div>
-            <div className="text-xs text-black/60 dark:text-white/60">
+            <div style={{ fontSize: 12, color: "#666" }}>
               This page is fully static and won’t change until you rebuild the app.
             </div>
-          </CardContent>
-        </Card>
-        <MetricsWidget buildOrRenderDurationMs={renderDuration} />
-      </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

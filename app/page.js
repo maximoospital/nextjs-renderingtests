@@ -8,8 +8,7 @@ export default function Home() {
     <div className="prose dark:prose-invert max-w-none">
       <h1>Rendering Methods Demo</h1>
       <p>
-        This is a minimal demo of Next.js rendering strategies compatible with the
-        Vercel Hobby plan.
+        This is a minimal demo of Next.js rendering strategies.
       </p>
       <ul>
         <li>SSR: server-side rendering, dynamic on every request.</li>

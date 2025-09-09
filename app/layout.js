@@ -1,16 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/navbar";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Minimal layout without external components or global CSS
 
 export const metadata = {
   metadataBase: new URL("https://example.com"),
@@ -28,12 +16,27 @@ export const metadata = {
   },
 };
 
+import MetricsWidget from "./metrics/MetricsWidget";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}>
-        <Navbar />
-        <main className="mx-auto max-w-5xl px-4 py-6">{children}</main>
+      <body style={{ margin: 0, fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif' }}>
+        <nav style={{ position: "sticky", top: 0, zIndex: 50, borderBottom: "1px solid #e5e5e5", background: "#fff" }}>
+          <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 16px", height: 48, display: "flex", alignItems: "center", gap: 16 }}>
+            <div style={{ fontWeight: 600 }}>Rendering Methods Demo</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14 }}>
+              <a href="/" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>Home</a>
+              <a href="/ssr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>SSR</a>
+              <a href="/csr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>CSR</a>
+              <a href="/ssg" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>SSG</a>
+              <a href="/isr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>ISR</a>
+            </div>
+          </div>
+        </nav>
+        <main style={{ maxWidth: 960, margin: "0 auto", padding: "24px 16px" }}>{children}</main>
+
+        <MetricsWidget />
       </body>
     </html>
   );
