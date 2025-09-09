@@ -17,6 +17,7 @@ export const metadata = {
 };
 
 import MetricsWidget from "./metrics/MetricsWidget";
+import Link from "next/link";
 
 export default function RootLayout({ children }) {
   return (
@@ -26,11 +27,11 @@ export default function RootLayout({ children }) {
           <div style={{ maxWidth: 960, margin: "0 auto", padding: "0 16px", height: 48, display: "flex", alignItems: "center", gap: 16 }}>
             <div style={{ fontWeight: 600 }}>Rendering Methods Demo</div>
             <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 14 }}>
-              <a href="/" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>Home</a>
-              <a href="/ssr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>SSR</a>
-              <a href="/csr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>CSR</a>
-              <a href="/ssg" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>SSG</a>
-              <a href="/isr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>ISR</a>
+              <Link href="/" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>Home</Link>
+              <Link href="/ssr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>SSR</Link>
+              <Link href="/csr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>CSR</Link>
+              <Link href="/ssg" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>SSG</Link>
+              <Link href="/isr" style={{ padding: "4px 8px", borderRadius: 6, textDecoration: "none", color: "inherit" }}>ISR</Link>
             </div>
           </div>
         </nav>
