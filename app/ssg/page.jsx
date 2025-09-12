@@ -33,6 +33,20 @@ export default async function Page() {
             </div>
           </div>
         </div>
+        <div style={{ border: "1px solid #eee", borderRadius: 12, padding: 16 }}>
+          <h3 style={{ margin: 0, marginBottom: 8, fontSize: 16, fontWeight: 600 }}>Explanation</h3>
+          <div style={{ fontSize: 14, display: "grid", gap: 8 }}>
+            <div>
+              SSG renders the page at build time and ships static HTML to users.
+              It’s fast and inexpensive to serve. Content remains the same until
+              the next build.
+            </div>
+            <div style={{ fontSize: 12, color: "#666" }}>
+              Ideal for documentation, marketing pages, and content that changes
+              infrequently.
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

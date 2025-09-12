@@ -37,6 +37,20 @@ export default async function Page() {
             </div>
           </div>
         </div>
+        <div style={{ border: "1px solid #eee", borderRadius: 12, padding: 16 }}>
+          <h3 style={{ margin: 0, marginBottom: 8, fontSize: 16, fontWeight: 600 }}>Explanation</h3>
+          <div style={{ fontSize: 14, display: "grid", gap: 8 }}>
+            <div>
+              SSR generates HTML on the server for every request, so data is always
+              fresh at the time of the request. The browser receives fully rendered
+              HTML and then hydrates any interactive islands.
+            </div>
+            <div style={{ fontSize: 12, color: "#666" }}>
+              Good for dynamic data that must be up-to-date. Trades extra server
+              work and response time for freshness and SEO-friendly content.
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

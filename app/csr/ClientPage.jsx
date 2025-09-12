@@ -72,6 +72,20 @@ export default function ClientPage() {
             </div>
           </div>
         </div>
+        <div style={{ border: "1px solid #eee", borderRadius: 12, padding: 16 }}>
+          <h3 style={{ margin: 0, marginBottom: 8, fontSize: 16, fontWeight: 600 }}>Explanation</h3>
+          <div style={{ fontSize: 14, display: "grid", gap: 8 }}>
+            <div>
+              CSR relies on the browser to render and update UI. The server sends
+              a minimal shell and JavaScript, and React renders the page on the
+              client. It’s great for highly interactive UIs.
+            </div>
+            <div style={{ fontSize: 12, color: "#666" }}>
+              Consider SEO and initial load trade-offs: CSR shifts work to the
+              client and may delay first content without careful optimization.
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

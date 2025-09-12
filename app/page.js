@@ -6,7 +6,7 @@ export const metadata = {
 export default function Home() {
   return (
     <div className="prose dark:prose-invert max-w-none">
-      <h1>Rendering Methods Demo</h1>
+      <h1>NextJS Demos</h1>
       <p>
         This is a minimal demo of Next.js rendering strategies.
       </p>
@@ -19,10 +19,6 @@ export default function Home() {
           on demand.
         </li>
       </ul>
-      <p>
-        Use the navigation bar to explore each page. Each non-home page includes a
-        compact metrics widget (TTFB, transfer size, a simple SEO score, and render/build time).
-      </p>
     </div>
   );
 }

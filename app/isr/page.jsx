@@ -41,6 +41,20 @@ export default async function Page() {
             </div>
           </div>
         </div>
+        <div style={{ border: "1px solid #eee", borderRadius: 12, padding: 16 }}>
+          <h3 style={{ margin: 0, marginBottom: 8, fontSize: 16, fontWeight: 600 }}>Explanation</h3>
+          <div style={{ fontSize: 14, display: "grid", gap: 8 }}>
+            <div>
+              ISR serves cached static HTML but allows it to be regenerated on a
+              schedule or via an API. Users get fast static responses while still
+              enabling updates without a full rebuild.
+            </div>
+            <div style={{ fontSize: 12, color: "#666" }}>
+              Useful when content changes periodically and you want a balance of
+              freshness and performance.
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
